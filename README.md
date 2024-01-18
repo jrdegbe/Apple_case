@@ -1,403 +1,147 @@
-Apple Inc. solution
-Step 1: Identify and Understand Entities
-Identify Entities:
-● Customers
-● Apple Accounts
-● Mailshot Campaigns
-● Orders
-● Products
-● Premises
-● Employees
-● Product Stock
-● Mailshot Campaigns
+## Apple Inc. Database Solution  ##
 
+Overview
+This document provides a comprehensive guide for setting up and managing a relational database for Apple Inc., covering entities identification, relationships definition, database schema design, normalization, and the use of Docker for PostgreSQL and PGAdmin setup.
+
+Steps Overview
+Step 1: Identify and Understand Entities
+Entities like Customers, Apple Accounts, Mailshot Campaigns, Orders, and others are identified and described with attributes.
 
 Step 2: Define Relationships
-Define Relationships:
-● Establish relationships based on business rules.
-● For example, a customer makes orders, products are associated with orders,
-premises employ employees, etc.
+Relationships between entities are established based on business rules, such as a customer making orders and products associated with orders.
 
 Step 3: Design Database Schema
-Design Database Schema:
-● Create tables for each identified entity.
-● Define primary and foreign keys.
-● Capture attributes for each entity.
+Tables for each entity are created with primary and foreign keys, and attributes for each entity are defined.
 
 Step 4: Normalize the Database
-Normalize the Database:
-● Eliminate data redundancies.
-● Remove anomalies and inconsistencies.
-● Ensure the database is in the Third Normal Form (3NF).
+The database is organized into the Third Normal Form (3NF) to eliminate redundancies and ensure consistency.
 
 Step 5: Create Tables
-Create Tables:
-● Implement the designed schema by creating tables in the database.
-● Use appropriate data types for each attribute.
+Tables are implemented in the database with appropriate data types for each attribute.
 
-
- Step 6: Implement Relationships
-Implement Relationships:
-● Set up foreign key constraints to enforce relationships.
-● Ensure referential integrity.
+Step 6: Implement Relationships
+Foreign key constraints are set up to enforce relationships and ensure referential integrity.
 
 Step 7: Populate Sample Data
-Populate Sample Data:
-● Insert sample data to test the database design.
-● Ensure data integrity and consistency.
-
+Sample data is inserted to test the database design, ensuring data integrity and consistency.
 
 Step 8: Query Design
-Query Design:
-● Develop queries to extract information based on the given scenarios.
-● Consider using SQL for querying.
-
+Queries are developed to extract information based on given scenarios using SQL.
 
 Step 9: Scenario-based Queries
-Scenario-based Queries:
-● Create specific queries to address each scenario provided.
+Specific queries are created for each provided scenario.
 
 Step 10: Market Research Query
-Market Research Query:
-● Design a query to extract demographic information and preferences of customers
-who bought the iPhone 12 series during the specified period.
-
+A query is designed to extract demographic information and preferences of customers who bought the iPhone 12 series.
 
 Step 11: Returns Eligibility Query
-Returns Eligibility Query:
-● Design a query to identify customers eligible for returns based on the purchase
-date.
+A query is designed to identify customers eligible for returns based on the purchase date.
 
 Step 12: Testing and Optimization
-Testing and Optimization:
-● Test the queries with sample data.
-● Optimize queries for performance.
+Queries are tested with sample data and optimized for performance.
 
- 1. Let's identify and briefly explain each of the entities:
-Customers:
-● Description: Individuals who purchase Apple products, either in-store or online.
-● Attributes: Customer ID, first name, surname, date of birth, gender, contact
-number.
+Docker Setup for PostgreSQL and PGAdmin
+Docker Images and Docker Compose
+Understanding Docker images and Docker Compose is crucial for setting up and running the PostgreSQL and PGAdmin.
 
-Apple Accounts:
-● Description: User accounts created by customers for online purchases and
-access to additional services.
-● Attributes: Apple ID (unique, associated with an email address), customer ID,
-password.
+Docker Images
+A Docker image is a template used as the base for creating a Container. Docker Hub hosts various Docker images.
 
-Mailshot Campaigns:
-● Description: Marketing campaigns targeting a large group of Apple account users
-to inform them about promotions.
-● Attributes: Mailshot ID, mailshot name, start date, end date.
+Docker Compose
+Compose is a tool for defining and running multi-container Docker applications. It uses a YAML file to configure application services.
 
-Orders:
-● Description: Records of customer transactions, detailing the products purchased,
-payment methods, and other order-related information.
-● Attributes: Order ID, order date and time, customer ID, product ID, employee ID,
-payment type, shipping option.
+Creating Docker Compose File
+A docker-compose.yml file is created to orchestrate the setup for PostgreSQL and PGAdmin. This file contains configuration for services, environment variables, ports, and volumes.
 
-Products:
-● Description: Apple's range of products available for purchase.
-● Attributes: Product ID, name, price per unit, product category.
+Building and Running Docker Compose
+After creating the docker-compose.yml file, Docker is used to build and run the services. Steps include checking Docker status, running docker-compose up, and accessing PGAdmin through a web browser.
 
-Premises:
-● Description: Physical locations associated with Apple, including offices,
-warehouses, and physical stores.
-● Attributes: Premise ID, premise type (office, warehouse, store), premise address.
+Configuring PostgreSQL Database Connection
+PGAdmin is configured to connect to the PostgreSQL database using the container name, username, and password specified in the Docker Compose file.
 
-Employees:
-● Description: Individuals working for Apple, assigned to different premises, with
-roles and responsibilities.
-● Attributes: Employee ID, name, gender, date of birth, contact, premise ID, date
-hired, date resigned, position.
+Final Commands
+Instructions are provided for stopping Docker Compose and removing data volumes to reset the database and configurations.
 
-Product Stock:
-● Description: Records of the quantity of each product in each physical store and
-warehouse.
-● Attributes: Product ID, premise ID, quantity.
-
- Mailshot Campaigns (again):
-● Description: Reiterated for clarity, this entity represents marketing campaigns
-targeting Apple account users.
-● Attributes: Mailshot ID, mailshot name, start date, end date.
-
-These entities form the foundation for creating a comprehensive database that meets Apple's business requirements.
+Conclusion
+This README provides a step-by-step guide for managing the Apple Inc. database, covering entity identification, relationship definition, schema design, normalization, querying, and Docker setup for PostgreSQL and PGAdmin. The process ensures a robust, efficient, and scalable database solution.
 
 
-2. Let's define relationships based on the business rules:
-Relationship between Customers and Apple Accounts:
-● Description: Each customer can own zero or many Apple accounts, establishing
-a one-to-many relationship.
-● Representation: One-to-Many (1:N)
-● Key Attributes: Customer ID in Customers links to Customer ID in Apple
-Accounts.
+## how to build and run the docker ## 
 
-Relationship between Apple Accounts and Mailshot Campaigns:
-● Description: Each Apple account is associated with zero or many mailshot
-campaigns, forming a one-to-many relationship.
-● Representation: One-to-Many (1:N)
-● Key Attributes: Apple ID in Apple Accounts links to Apple ID in Mailshot
-Campaigns.
+Prerequisites
+Ensure Docker is installed on your system. You can download it from Docker's official website.
+Basic understanding of Docker and Docker Compose is beneficial.
 
-Relationship between Customers and Orders:
-● Description: Each customer can make zero or many orders, establishing a
-one-to-many relationship.
-● Representation: One-to-Many (1:N)
-● Key Attributes: Customer ID in Customers links to Customer ID in Orders.
+Step 1: Create a Docker Compose File
+Create a New File: In a suitable directory on your computer, create a file named docker-compose.yml.
 
-Relationship between Orders and Products:
-● Description: Every order must be associated with at least one valid product,
-forming a mandatory one-to-many relationship.
-● Representation: One-to-Many (1:N)
-● Key Attributes: Product ID in Products links to Product ID in Orders.
+Add Configuration: Open the file in a text editor and input the following content:
+yaml
+Copy code
+version: '3.8'
+services:
+  db:
+    container_name: postgres_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
-Relationship between Products and Premises:
-● Description: Each product may be found in one or many premises, establishing a
-many-to-many relationship.
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:5.5
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: secret
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
 
-● Representation: Many-to-Many (M:N) with an associative table.
+volumes:
+  db-data:
+  pgadmin-data:
 
- ● Key Attributes: Product ID in Products links to Product ID in Product Stock. Premise ID in Premises links to Premise ID in Product Stock.
-Relationship between Premises and Employees:
-● Description: Each premise employs one or many employees, forming a
-one-to-many relationship.
+Step 2: Running Docker Compose
+Open Terminal or Command Prompt: Navigate to the directory where your docker-compose.yml file is located.
+Start Docker: Ensure Docker is running on your machine. You can verify this by typing docker info in the terminal.
 
-● Representation: One-to-Many (1:N)
-● Key Attributes: Premise ID in Premises links to Premise ID in Employees.
+Run Docker Compose: Execute the command docker-compose up. This command will start downloading the necessary Docker images (if not already downloaded) and start the containers as specified in the docker-compose.yml file.
 
-Relationship between Employees and Employees (Managerial):
-● Description: Some employees manage zero or many employees, creating a
-hierarchical relationship within the Employees entity.
-● Representation: Recursive One-to-Many (1:N)
-● Key Attributes: Employee ID (Manager) in Employees links to Employee ID
-(Managed) in Employees.
+Step 3: Accessing PGAdmin
+Open Web Browser: Once the containers are running, open a web browser.
+Navigate to PGAdmin: Go to http://localhost:8080 or http://127.0.0.1:8080.
+Login to PGAdmin: Use the credentials provided in the Docker Compose file. In this case:
+Email: admin@admin.com
+Password: secret
 
-Relationship between Employees and Orders (Processing):
-● Description: Each employee processes zero or many orders, forming a
-one-to-many relationship.
-● Representation: One-to-Many (1:N)
-● Key Attributes: Employee ID in Employees links to Employee ID in Orders.
+Step 4: Configure PostgreSQL Database in PGAdmin
+Add New Server: In PGAdmin, choose “Add New Server”.
+Server Configuration:
+In the 'Name' field, enter any name for organization purposes.
+Go to the 'Connection' tab.
+In 'Host name/address', enter the name of your PostgreSQL container (here, postgres_container).
+Username: admin
+Password: secret
+Save Configuration: Click 'Save' to establish the connection.
 
-Relationship between Orders and Ship_Details:
-● Description: Each order has zero or one ship_details, forming a one-to-one
-optional relationship.
-● Representation: One-to-One (1:1)
-● Key Attributes: Order ID in Orders links to Order ID in Ship_Details.
+Step 5: Managing Docker Compose
+To Stop the Containers: In the terminal, execute docker-compose down.
+To Clean Data: If you wish to reset your database and configurations:
+Check volumes with docker volume ls.
+Delete the desired volumes using docker volume rm [VOLUME_NAME].
 
-Relationship between Ship_Details and Orders (Inverse):
-● Description: Each ship_details is associated with one order, creating the inverse
-of the previous relationship.
-● Representation: One-to-One (1:1)
-● Key Attributes: Order ID in Ship_Details links to Order ID in Orders.
+## Notes
+The Docker Compose file provided sets up PostgreSQL and PGAdmin. PostgreSQL will be accessible on port 5432, and PGAdmin will be accessible through a web browser on port 8080.
+Data is persisted through Docker volumes, ensuring data is not lost when the containers are stopped.
 
-These relationships help establish the connections between different entities in the database.
-
- 3. Let's design the database schema by creating tables for each identified entity, defining
-primary and foreign keys, and capturing attributes for each entity.
-
-Customers Table: ● Attributes:
-● Customer ID (Primary Key)
-● First Name
-● Surname
-● Date of Birth
-● Gender
-● Contact Number
-● Primary Key: Customer ID
-
-Apple Accounts Table:
-● Attributes:
-● Apple ID (Primary Key)
-● Email Address
-● Password
-● Customer ID (Foreign Key)
-● Primary Key: Apple ID
-● Foreign Key: Customer ID references Customers(Customer ID)
-
-Mailshot Campaigns Table:
-● Attributes:
-● Mailshot ID (Primary Key)
-● Mailshot Name
-● Start Date
-● End Date
-● Primary Key: Mailshot ID
-
-Orders Table:
-● Attributes:
-● Order ID (Primary Key)
-● Order Date and Time
-● Customer ID (Foreign Key)
-● Product ID (Foreign Key)
-● Employee ID (Foreign Key)
-● Payment Type
-● Shipping Option
-● Ship ID (Foreign Key, Optional)
-● Primary Key: Order ID
-● Foreign Keys: Customer ID references Customers(Customer ID), Product ID
-references Products(Product ID), Employee ID references Employees(Employee ID), Ship ID references Ship_Details(Order ID)
-
- Products Table:
-● Attributes:
-● Product ID (Primary Key)
-● Product Name
-● Price per Unit
-● Product Category
-● Primary Key: Product ID
-
-Premises Table: 
-● Attributes:
-● Premise ID (Primary Key)
-● Premise Type
-● Premise Address
-● Primary Key: Premise ID
-
-Employees Table:
-● Attributes:
-● Employee ID (Primary Key)
-● Name
-● Gender
-● Birthdate
-● Contact
-● Premise ID (Foreign Key)
-● Date Hired
-● Date Resigned
-● Position
-● Person to Report To (Foreign Key, Recursive)
-● Monthly Salary
-● Primary Key: Employee ID
-● Foreign Keys: Premise ID references Premises(Premise ID), Person to Report To
-references Employees(Employee ID)
-
-Product Stock Table:
-● Attributes:
-● Product ID (Primary Key, Foreign Key)
-● Premise ID (Primary Key, Foreign Key)
-● Quantity
-● Primary Keys: Product ID, Premise ID
-● Foreign Keys: Product ID references Products(Product ID), Premise ID
-references Premises(Premise ID)
-
-Mailshot Campaigns to Apple Accounts (Associative Table): ● Attributes:
-● Mailshot ID (Primary Key, Foreign Key)
- ● Apple ID (Primary Key, Foreign Key)
-● Primary Keys: Mailshot ID, Apple ID
-● Foreign Keys: Mailshot ID references Mailshot Campaigns(Mailshot ID), Apple ID
-references Apple Accounts(Apple ID)
-
-Employees Hierarchy Table (Associative Table):
-● Attributes:
-● Manager Employee ID (Primary Key, Foreign Key)
-● Managed Employee ID (Primary Key, Foreign Key)
-● Primary Keys: Manager Employee ID, Managed Employee ID
-● Foreign Keys: Manager Employee ID references Employees(Employee ID),
-Managed Employee ID references Employees(Employee ID)
-
-Ship_Details Table: 
-● Attributes:
-● Order ID (Primary Key, Foreign Key)
-● Shipping Address
-● City
-● State
-● Postcode
-● Country
-● Primary Key: Order ID
-● Foreign Key: Order ID references Orders(Order ID)
-
-These tables, along with their attributes and relationships, form the foundation of the database schema. Each table has a primary key to uniquely identify records, and foreign keys establish relationships between tables.
-
-4. Normalizing the database involves organizing the tables and their relationships to eliminate data redundancies, remove anomalies, and ensure the database is in the Third Normal Form (3NF). 
-
-Let's go through the normalization process:
-First Normal Form (1NF):
-Ensure that each column in a table contains atomic (indivisible) values.
-
-Customers Table (1NF):
-● No changes needed as attributes are atomic.
-Apple Accounts Table (1NF): ● No changes needed.
-
- Mailshot Campaigns Table (1NF): ● No changes needed.
-Orders Table (1NF):
-● No changes needed.
-
-Products Table (1NF):
-● No changes needed.
-Premises Table (1NF):
-● No changes needed.
-
-Employees Table (1NF):
-● No changes needed.
-Product Stock Table (1NF): 
-● No changes needed.
-
-Mailshot Campaigns to Apple Accounts (1NF): 
-● No changes needed.
-
-Employees Hierarchy Table (1NF): 
-● No changes needed.
-Ship_Details Table (1NF):
-● No changes needed.
-Second Normal Form (2NF):
-Ensure that each non-prime attribute is fully functionally dependent on the primary key.
-
-Customers Table (2NF):
-● No changes needed as there are no composite primary keys.
-
-Apple Accounts Table (2NF): 
-
-● No changes needed.
-Mailshot Campaigns Table (2NF): ● No changes needed.
-
-Orders Table (2NF):
-● No changes needed.
-Products Table (2NF):
-
- ● No changes needed.
-Premises Table (2NF):
-● No changes needed.
-Employees Table (2NF):
-● No changes needed.
-Product Stock Table (2NF): ● No changes needed.
-Mailshot Campaigns to Apple Accounts (2NF): 
-
-● No changes needed.
-Employees Hierarchy Table (2NF): 
-
-● No changes needed.
-Ship_Details Table (2NF):
-● No changes needed.
-
-Third Normal Form (3NF):
-Ensure that each non-prime attribute is not transitively dependent on the primary key.
-Customers Table (3NF):
-● No changes needed.
-
-Apple Accounts Table (3NF): 
-● No changes needed.
-
-Mailshot Campaigns Table (3NF): 
-● No changes needed.
-Orders Table (3NF):
-● No changes needed.
-Products Table (3NF):
-● No changes needed.
-Premises Table (3NF):
-● No changes needed.
-Employees Table (3NF):
-● No changes needed.
-
-Product Stock Table (3NF): 
-● No changes needed.
-Mailshot Campaigns to Apple Accounts (3NF): 
-
-● No changes needed.
-Employees Hierarchy Table (3NF): 
-● No changes needed.
-Ship_Details Table (3NF):
-● No changes needed.
-
-The database is already in the Third Normal Form (3NF) since all tables are in 1NF and 2NF, and there are no transitive dependencies. 
-
-The normalized database is now structured to minimize redundancies and ensure data consistency. 
-
-
-5. Let's create the tables based on the designed schema and use appropriate data types for each attribute. I'll provide a brief explanation for each table:
-Customers Table:
+By following these steps, you will have a PostgreSQL database and PGAdmin running in Docker containers, easily accessible for database management and development tasks.
