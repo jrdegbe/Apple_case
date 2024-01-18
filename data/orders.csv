@@ -1,0 +1,48 @@
+"order_id","order_datetime","cust_id","emp_id","pay_type","shipping_option","ship_id"
+1,"2021-06-10 00:00:00",50001,7,"Cash","In-store Purchase",1
+2,"2021-06-10 00:00:00",50002,8,"Check","In-store Purchase",2
+3,"2021-06-10 00:00:00",50003,9,"Credit Card","In-store Pickup",3
+4,"2021-06-10 00:00:00",50004,10,"Cash","In-store Purchase",4
+5,"2021-06-10 00:00:00",50005,11,"Cash","In-store Purchase",5
+6,"2021-06-10 00:00:00",50006,12,"Credit Card","In-store Pickup",6
+7,"2021-06-10 00:00:00",50007,13,"Credit Card","In-store Pickup",7
+8,"2021-06-10 00:00:00",50008,14,"Debit Card","In-store Pickup",8
+9,"2021-06-10 00:00:00",50009,15,"Online Banking","Delivery Service",9
+10,"2021-06-10 00:00:00",50010,16,"Credit Card","Delivery Service",10
+11,"2021-06-11 00:00:00",50011,7,"Debit Card","Delivery Service",11
+12,"2021-06-11 00:00:00",50012,8,"Online Banking","In-store Pickup",12
+13,"2021-06-11 00:00:00",50013,9,"Debit Card","In-store Pickup",13
+14,"2021-06-11 00:00:00",50014,10,"Debit Card","In-store Purchase",14
+15,"2021-06-11 00:00:00",50015,11,"Check","In-store Purchase",15
+16,"2021-06-12 00:00:00",50016,12,"Check","Delivery Service",16
+17,"2021-06-12 00:00:00",50017,13,"Debit Card","Delivery Service",17
+18,"2021-06-12 00:00:00",50018,14,"Cash","In-store Purchase",18
+19,"2021-06-12 00:00:00",50019,15,"Online Banking","In-store Purchase",19
+20,"2021-06-12 00:00:00",50020,16,"Cash","Delivery Service",20
+21,"2021-06-12 00:00:00",50021,7,"Online Banking","In-store Pickup",21
+22,"2021-06-12 00:00:00",50022,8,"Credit Card","Delivery Service",22
+23,"2021-06-12 00:00:00",50023,9,"Credit Card","In-store Pickup",23
+24,"2021-06-12 00:00:00",50024,10,"Credit Card","In-store Pickup",24
+25,"2021-06-13 00:00:00",50025,11,"Credit Card","Delivery Service",25
+26,"2021-06-13 00:00:00",50026,12,"Debit Card","Delivery Service",26
+27,"2021-06-13 00:00:00",50027,13,"Cash","In-store Purchase",27
+28,"2021-06-13 00:00:00",50028,14,"Online Banking","In-store Purchase",28
+29,"2021-06-13 00:00:00",50029,15,"Debit Card","In-store Purchase",29
+30,"2021-06-14 00:00:00",50030,16,"Debit Card","Delivery Service",30
+31,"2021-06-14 00:00:00",50031,7,"Check","Delivery Service",31
+32,"2021-06-14 00:00:00",50032,8,"Cash","In-store Purchase",32
+33,"2021-06-14 00:00:00",50033,9,"Credit Card","In-store Purchase",33
+34,"2021-06-14 00:00:00",50034,10,"Online Banking","In-store Purchase",34
+35,"2021-06-14 00:00:00",50035,11,"Credit Card","In-store Pickup",35
+36,"2021-06-14 00:00:00",50036,12,"Credit Card","In-store Pickup",36
+37,"2021-06-15 00:00:00",50037,13,"Credit Card","Delivery Service",37
+38,"2021-06-15 00:00:00",50038,14,"Debit Card","Delivery Service",38
+39,"2021-06-15 00:00:00",50039,15,"Check","In-store Purchase",39
+40,"2021-06-15 00:00:00",50040,16,"Cash","In-store Purchase",40
+41,"2021-06-16 00:00:00",50041,7,"Credit Card","In-store Pickup",41
+42,"2021-06-16 00:00:00",50042,8,"Check","In-store Pickup",42
+43,"2021-06-16 00:00:00",50043,9,"Debit Card","In-store Pickup",43
+44,"2021-06-16 00:00:00",50044,10,"Debit Card","Delivery Service",44
+45,"2021-06-16 00:00:00",50045,11,"Cash","Delivery Service",45
+46,"2021-06-16 00:00:00",50046,12,"Online Banking","In-store Pickup",46
+47,"2021-06-17 00:00:00",50047,13,"Online Banking","In-store Pickup",47
